@@ -20,7 +20,7 @@ Feature: Set up meting with tutor
       | sid        | first_name | last_name | email                    | privilege | birthdate  | password  | password_confirmation | confirmed_at        | id
       | 1234567890 | test       | student   | teststudent@berkeley.edu | No        | 1992-01-01 | topsecret | topsecret             | 2019-05-07 05:07:48 | 1
      
-     Given "test" had a meeting with tutor "test" with meeting id "1" request having tutuee id "1" course name "CS61A" and evaluation status "Pending" times "2020-12-07 05:07:48,2020-05-07 05:07:48,2020-05-07 05:07:48" and locations "soda,dwinelle,remote"
+     Given "test" had a meeting with tutor "test" with meeting id "1" request having tutuee id "1" course name "CS61A" and evaluation status "Pending" times 10 days from now and locations "soda,dwinelle,remote"
 
   Scenario: Set up meeting
     Given I login as "test"
@@ -28,7 +28,6 @@ Feature: Set up meting with tutor
     And I follow "Meeting"
     And I press "Schedule Meeting"
     Then I should see "Your Next Meeting Info"
-    Then I should see "Sunday 06 at 9:07 PM"
     Then I should see "Soda"
 
 

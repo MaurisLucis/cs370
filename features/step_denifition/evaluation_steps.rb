@@ -78,6 +78,15 @@ Given /"(.*)" had a meeting with tutor "(.*)" with meeting id "(.*)" request hav
 
 end
 
+Given /"(.*)" had a meeting with tutor "(.*)" with meeting id "(.*)" request having tutuee id "(.*)" course name "(.*)" and evaluation status "(.*)" times 10 days from now and locations "(.*)"/ do |first_name, tutorname, meetid, tuteeid, coursename,stat, locations|
+  time1 = (Time.now + 10.days).strftime('%Y-%m-%d %H:%M:%S')
+  time2 = (Time.now + 15.days).strftime('%Y-%m-%d %H:%M:%S')
+  time3 = (Time.now + 20.days).strftime('%Y-%m-%d %H:%M:%S')
+  time_string = time1 + "," + time2 + "," + time3
+  step_definition = "\"" + first_name + "\" had a meeting with tutor \"" + tutorname + "\" with meeting id \"" + meetid + "\" request having tutuee id \"" + tuteeid + "\" course name \"" + coursename + "\" and evaluation status \"" + stat + "\" times \"" + time_string + "\" and locations \"" + locations + "\""
+  step step_definition
+end
+
 ####################### NOT WORKING PROPERLY
 # Given /"(.*)" requests tutoring for course name "(.*)"/ do |first_name, coursename,|
 #   tutee = Tutee.find_by_first_name(first_name)
